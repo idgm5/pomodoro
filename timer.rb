@@ -46,12 +46,17 @@ def settings(pt, bt, cycs)
     sleep(300)
     NotifySend.send({summary: "Break Time started", icon: "info"})
     sleep(bt - 60)
-    NotifySend.send({summary: "Productive Time will start in one minute", icon: "info"})
-    sleep(60)
+    if (i + 1) == cycs
+      NotifySend.send({summary: "Timer will stop in one minute", icon: "info"})
+      sleep(60)
+    else
+      NotifySend.send({summary: "Productive Time will start in one minute", icon: "info"})
+      sleep(60)
+    end
     i += 1
   end
   NotifySend.send({summary: "Timer stopped after #{cycs} sessions", icon: "info"})
 end
 
-print "Pomodoro running..."
+puts "Pomodoro running..."
 settings(p_time, b_time, sessions)
