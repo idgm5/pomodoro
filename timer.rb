@@ -71,10 +71,10 @@ def settings(pt, bt, cycs, lb=0, cycs_long=0)
     NotifySend.send({summary: "Break Time will start in five minutes", icon: "info"})
     sleep(300)
     if i == cycs_long
-      NotifySend.send({summary: "The Long Break of #{lb} minutes started", icon: "info"})
+      NotifySend.send({summary: "The Long Break of #{(lb/60)} minutes started", icon: "info"})
       sleep(lb - 60)
     else
-      NotifySend.send({summary: "A Break Time of #{bt} minutes started", icon: "info"})
+      NotifySend.send({summary: "A Break Time of #{(bt/60)} minutes started", icon: "info"})
       sleep(bt - 60)
     end
     if (i + 1) == cycs
